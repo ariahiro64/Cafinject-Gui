@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="dark-theme.css">
+  </head>
+<body>
+
+  <h1><label>Wad info</label></h1><br />
+  <label> Wad ID:</label><br />
+  <input type="char[4]" value="NRKE" id="id"><br />
+  <label>Home Menu Name:</label><br />
+  <input type="char[42]" value="Modded Ocarina of Time" id="home.menu.message"><br />
+  <h1>Files:</h1><br />
+  <label>Untouched Wad:</label><br />
+  <button id="input.wad.path" onclick="imp.wad()">Select WAD.</button><br/>
+  <label>Compressed 32mb rom:</label><br />
+  <button id="input.rom.path" onclick="imp.z64()">Select ROM.</button><br/>
+  <label>New Wad:</label><br />
+  <button id="output.wad.path" onclick="imp.owad()">Select New Wad.</button><br/>
+  <label>Fix Broken Mappings:</label>
+  <input type="checkbox" id="raphnet" /><br />
+  <label>Display Scary Debugging info:</label>
+  <input type="checkbox" id="verbose"><br>
+  <label>Fix debug rom header:</label>
+  <input type="checkbox" id="debugrom" /><br />
+  <button type="submit" id="button" onclick="onSubmitClick()">Inject Zelda Rom Image</button>
+
+  <script>
+    function onSubmitClick() {
+      let args = {};
+      args["id"] = document.getElementById("id").value;
+      args["home.menu.message"] = document.getElementById("home.menu.message").value;
+      args["input.wad.path"] = document.getElementById("input.wad.path").value;
+      args["input.rom.path"] = document.getElementById("input.rom.path").value;
+      args["output.wad.path"] = document.getElementById("output.wad.path").value;
+      args["raphnet"] = document.getElementById("raphnet").checked;
+      args["verbose"] = document.getElementById("verbose").checked;
+      args["debugrom"] = document.getElementById("debugrom").checked;
+      imp.send(args);
+    }
+
+    var imp = require('./renderer');
+  </script>
+
+
+</body>
+
+</html>

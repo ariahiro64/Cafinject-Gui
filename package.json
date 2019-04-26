@@ -1,0 +1,15 @@
+{
+  "productName": "Caffinject",
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cross-spawn": "^6.0.5"
+  }
+}
