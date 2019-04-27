@@ -6,12 +6,12 @@ function sendToMainProcess(event) {
 
 function openDialogWad() {
     let file = remote.dialog.showOpenDialog({
-        "title": '',
+        "title": "Choose your Zelda OoT NTSC WAD",
         "properties": [`openFile`],
         "filters":
             [
                 {
-                    "name": "all",
+                    "name": "Wii App Distro File",
                     "extensions": ["wad"]
                 }
             ],
@@ -23,12 +23,12 @@ function openDialogWad() {
 
 function openDialogz64() {
     let file = remote.dialog.showOpenDialog({
-        "title": '',
+        "title": "Choose a compressed Zelda rom",
         "properties": [`openFile`],
         "filters":
             [
                 {
-                    "name": "all",
+                    "name": "Nintendo 64 ROM",
                     "extensions": ["z64"]
                 }
             ],
@@ -39,13 +39,14 @@ function openDialogz64() {
 }
 
 function openDialogWad_out() {
-    let file = remote.dialog.showOpenDialog({
-        "title": '',
+    let file = remote.dialog.showSaveDialog({
+        "title": "Enter new wad name",
         "properties": [`promptToCreate`],
+        "defaultPath": "ZELDA_MODDED.wad",
         "filters":
             [
-                {
-                    "name": "all",
+                {  
+                    "name": "Wii App Distro File",
                     "extensions": ["wad"]
                 }
             ],
@@ -54,4 +55,6 @@ function openDialogWad_out() {
     document.getElementById("output.wad.path").value = file;
     return file;
 }
+
+
 module.exports = { send: sendToMainProcess, wad: openDialogWad, z64: openDialogz64, owad: openDialogWad_out};
