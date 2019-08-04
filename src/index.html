@@ -63,7 +63,8 @@
     args["output.wad.path"] = document.getElementById("output.wad.path").value;
     args["raphnet"] = document.getElementById("raphnet").checked;
     args["debugrom"] = document.getElementById("debugrom").checked;
-    imp.send(args);
+    imp.send(args);<!DOCTYPE html>
+    window.alert("It seems to have worked! Test on an emulator before installing on a real wii");
   }
 
   var imp = require('./renderer');
