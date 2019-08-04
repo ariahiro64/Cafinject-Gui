@@ -44,13 +44,18 @@
       <td><input id="raphnet" type="checkbox"></td>
     </tr>
     <tr>
+      <td><label>Display Scary Debugging info:</label></td>
+      <td><input id="verbose" type="checkbox"></td>
+    </tr>
+    <tr>
       <td><label>Fix debug rom header:</label></td>
       <td><input id="debugrom" type="checkbox"></td>
     </tr>
   </tbody>
 </table>
+<dialog> <p>Test.</p> <button id="button">K</button> </dialog>
 
-  <button type="submit" id="button" onclick="onSubmitClick()">Inject Rom Image</button>
+  <button type="submit" id="button" onclick="onSubmitClick()">Inject Zelda Rom Image</button>
 
   
   <script>
@@ -62,11 +67,11 @@
     args["input.rom.path"] = document.getElementById("input.rom.path").value;
     args["output.wad.path"] = document.getElementById("output.wad.path").value;
     args["raphnet"] = document.getElementById("raphnet").checked;
+    args["verbose"] = document.getElementById("verbose").checked;
     args["debugrom"] = document.getElementById("debugrom").checked;
-    imp.send(args);<!DOCTYPE html>
-    window.alert("It seems to have worked! Test on an emulator before installing on a real wii");
+    imp.send(args);
+    alert("Seems to have worked!");
   }
-
   var imp = require('./renderer');
 </script>
 
